@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+    <h:head>
+        <link href="css/estilo.css" rel="stylesheet" type="text/css" />
+        <title>Facelet Title</title>
+        <style type="text/css">
+            #acceso{
+                width: 300px;
+                margin: 0 auto 0 auto;
+                background-color: beige;
+                border: blue;
+                border-style: solid;
+                border-width: 2px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div id="acceso">
+            <h1 align="center">ACCESO AL SISTEMA</h1>
+            <h2>PROYECTO CON EJB Y JPA</h2>
+            <h:form>
+                <h:messages showDetail="true" style="color: white; background-color: red;padding: 10px;" />
+                <h:panelGrid columns="2" style="margin: 0 auto 0 auto">
+
+                    <h:outputLabel value="Usuario"/>
+                    <h:inputText
+                        styleClass="campoEditar"
+                        maxlength="15"
+                        size="15"
+                        value="#{ventaBean.usuario}"/>
+
+                    <h:outputLabel value="Clave"/>
+                    <h:inputSecret
+                        styleClass="campoEditar"
+                        maxlength="10"
+                        size="15"
+                        value="#{ventaBean.clave}"/>
+
+                    <h:outputText />
+                    <h:commandButton
+                
+                        value="Ingresar"
+                        action="#{ventaBean.doIngresar}"
+                        
+                        />
+
+                </h:panelGrid>
+
+                <h:outputText
+                    styleClass="error"
+                    value="#{ventaBean.mensaje}"/>
+
+            </h:form>
+        </div>
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
+</html>
+

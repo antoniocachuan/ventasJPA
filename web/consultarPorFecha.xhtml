@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+
+	<body>
+
+		<ui:composition template="./plantilla/PlantillaGeneral.xhtml">
+
+			<ui:define name="content">
+
+				<h:form>
+					<h1>Ventas por Rango de Fecha</h1>
+					<h:panelGrid columns="2">
+
+						<h:outputText value="Fecha 1:"/>
+						<h:inputText value="#{ventaBean.fecha1}">
+							<f:convertDateTime type="date" pattern="dd-MM-yyyy" />
+						</h:inputText>
+
+						<h:outputText value="Fecha 2:"/>
+						<h:inputText value="#{ventaBean.fecha2}">
+							<f:convertDateTime type="date" pattern="dd-MM-yyyy"  />
+						</h:inputText>
+
+						<h:commandButton value="Consultar" action="#{ventaBean.doVentasPorFecha}"/>
+					</h:panelGrid>
+
+					<h:dataTable border="1" value="#{ventaBean.ventasPorFecha}" var="rec">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ID" />
+							</f:facet>
+							<h:outputText value="#{rec.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="FECHA" />
+							</f:facet>
+							<h:outputText value="#{rec.fecha}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="CLIENTE" />
+							</f:facet>
+							<h:outputText value="#{rec.cliente.nombre}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="EMPLEADO" />
+							</f:facet>
+							<h:outputText value="#{rec.empleado.nombre}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="SUBTOTAL" />
+							</f:facet>
+							<h:outputText value="#{rec.subtotal}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="IMPUESTO" />
+							</f:facet>
+							<h:outputText value="#{rec.impuesto}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="TOTAL" />
+							</f:facet>
+							<h:outputText value="#{rec.total}" />
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			</ui:define>
+
+		</ui:composition>
+
+	</body>
+</html>

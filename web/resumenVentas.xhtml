@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+    
+    <body>
+        
+        <ui:composition template="./plantilla/PlantillaGeneral.xhtml">
+            
+            <ui:define name="content">
+					<h1>Resumen de Ventas por Articulo</h1>
+					<h:dataTable border="1" value="#{ventaBean.resumenVentas}" var="rec">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ID" />
+							</f:facet>
+							<h:outputText value="#{rec.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="NOMBRE" />
+							</f:facet>
+							<h:outputText value="#{rec.nombre}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="CANT" />
+							</f:facet>
+							<h:outputText value="#{rec.cantidad}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="IMPORTE" />
+							</f:facet>
+							<h:outputText value="#{rec.importe}" />
+						</h:column>
+					</h:dataTable>
+            </ui:define>
+
+        </ui:composition>
+        
+    </body>
+</html>
