@@ -1,0 +1,4 @@
+ventasJPA
+=========
+
+JPA, EJB
